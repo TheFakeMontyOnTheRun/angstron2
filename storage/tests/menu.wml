@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN""http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="0" title="menu" style="top:50%;left:20%" >
+<!-- img src="title.svg"/ -->
+<img src="end2b.svg"/>
+
+<br/>
+<p>Droid Hunter</p>
+<br/>
+<a href="#1">jugar</a>
+<a href="game.exit()">    Quit</a>
+<on key="enter" sound="tests/apert.wav"/>
+<on key="up" sound="tests/alert.wav"/>
+<on key="down" sound="tests/alert.wav"/>
+</card>
+
+<object mapfile="tests/testlight.bzk2.opt" watermark="common/watermark.svg" />
+
+
+</wml>

@@ -1,0 +1,21 @@
+function main ( a1 , a2 )
+{ 
+var a ;
+alert ( ) ;
+dominateworld ( ) ;
+}
+
+function BeNice ( how , howmuch )
+{
+easypeasy ( ) ;
+notsoeasy ( ) ;
+messy ( ) ;
+better ( ) ;
+stronger ( ) ;
++ ( 2 , 2 ) ;
+}
+
+function BeKinky ( easiness )
+{ 
+driveyoucrazy ( ) ;
+}

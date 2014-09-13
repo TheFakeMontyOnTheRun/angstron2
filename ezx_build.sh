@@ -1,0 +1,3 @@
+source ~/Scripts/setenv-a1200.sh
+arm-linux-gnu-g++  -L/opt/crosstool/arm-linux-gnu/lib -L/opt/a1200/lib -L/opt/a1200/lib/ezx/lib -L/opt/a1200/ezx/lib -L/opt/a1200/lib/ezx/lib/inputmethods -L/opt/crosstool/lib  -L/opt/a1200 -I/opt/crosstool/arm-linux-gnu/include -I/opt/a1200/ezx/include -I/opt/a1200/qt/include -I/opt/crosstool/include    -O3 BZKmain.cpp  AppStart.cpp sprig/*.c -g3 -mcpu=iwmmxt -mtune=iwmmxt -w -DEZX -DFPU -DSUPPORT_SDL_GFX -DSUPPORT_BITMAP_FONTS -DBZK_FULLSCREEN -DDEBUG -o hunter_ezx `/opt/crosstool/bin/sdl-config --cflags --libs` -lSDL_mixer -lSDL_gfx
+arm-linux-gnu-strip hunter_ezx

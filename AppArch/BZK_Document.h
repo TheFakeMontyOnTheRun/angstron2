@@ -1,0 +1,4 @@
+class BZK_Document
+{
+  
+};

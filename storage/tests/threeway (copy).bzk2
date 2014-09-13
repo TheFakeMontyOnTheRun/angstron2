@@ -1,0 +1,2045 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="bzkmap.xsl" ?>
+<BZK2>
+<Version>
+0.5
+</Version>
+<Number.of.Sectors>
+22
+</Number.of.Sectors>
+<!--setor 0-->
+<Sector>
+<Volume>
+<Vec3f>
+0
+0
+0
+</Vec3f>
+25
+36
+255
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+208
+26
+26
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 1-->
+<Sector>
+<Volume>
+<Vec3f>
+23
+48
+0
+</Vec3f>
+95
+81
+34
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+206
+136
+100
+255
+</RGBA>
+<RGBA>
+205
+160
+103
+255
+</RGBA>
+<RGBA>
+205
+143
+50
+255
+</RGBA>
+<RGBA>
+140
+69
+69
+255
+</RGBA>
+<RGBA>
+45
+94
+94
+255
+</RGBA>
+<RGBA>
+201
+24
+24
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 2-->
+<Sector>
+<Volume>
+<Vec3f>
+49
+148
+0
+</Vec3f>
+60
+44
+47
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+216
+176
+147
+255
+</RGBA>
+<RGBA>
+213
+168
+168
+255
+</RGBA>
+<RGBA>
+199
+165
+155
+255
+</RGBA>
+<RGBA>
+197
+107
+107
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+234
+28
+28
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 3-->
+<Sector>
+<Volume>
+<Vec3f>
+49
+11
+0
+</Vec3f>
+23
+37
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+221
+152
+116
+255
+</RGBA>
+<RGBA>
+210
+106
+106
+255
+</RGBA>
+<RGBA>
+207
+112
+62
+255
+</RGBA>
+<RGBA>
+204
+119
+119
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+181
+51
+20
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 4-->
+<Sector>
+<Volume>
+<Vec3f>
+72
+4
+0
+</Vec3f>
+94
+26
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+216
+34
+34
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 5-->
+<Sector>
+<Volume>
+<Vec3f>
+127
+30
+0
+</Vec3f>
+26
+56
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+227
+78
+80
+255
+</RGBA>
+<RGBA>
+227
+133
+51
+255
+</RGBA>
+<RGBA>
+190
+47
+40
+255
+</RGBA>
+<RGBA>
+163
+38
+38
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+161
+23
+28
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 6-->
+<Sector>
+<Volume>
+<Vec3f>
+118
+86
+0
+</Vec3f>
+70
+21
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+160
+25
+20
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 7-->
+<Sector>
+<Volume>
+<Vec3f>
+148
+107
+0
+</Vec3f>
+19
+57
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+123
+42
+32
+255
+</RGBA>
+<RGBA>
+138
+50
+50
+255
+</RGBA>
+<RGBA>
+122
+47
+45
+255
+</RGBA>
+<RGBA>
+125
+59
+59
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+212
+111
+51
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 8-->
+<Sector>
+<Volume>
+<Vec3f>
+109
+164
+0
+</Vec3f>
+68
+19
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+0
+0
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+157
+32
+22
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 9-->
+<Sector>
+<Volume>
+<Vec3f>
+89
+129
+0
+</Vec3f>
+17
+20
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+145
+15
+15
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 10-->
+<Sector>
+<Volume>
+<Vec3f>
+177
+107
+0
+</Vec3f>
+34
+76
+46
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+225
+225
+245
+255
+</RGBA>
+<RGBA>
+208
+144
+144
+255
+</RGBA>
+<RGBA>
+182
+139
+131
+255
+</RGBA>
+<RGBA>
+123
+123
+123
+255
+</RGBA>
+<RGBA>
+215
+196
+196
+255
+</RGBA>
+<RGBA>
+158
+35
+35
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 11-->
+<Sector>
+<Volume>
+<Vec3f>
+166
+4
+0
+</Vec3f>
+34
+47
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+57
+179
+41
+255
+</RGBA>
+<RGBA>
+51
+195
+47
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+53
+146
+40
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+60
+83
+148
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 12-->
+<Sector>
+<Volume>
+<Vec3f>
+191
+51
+0
+</Vec3f>
+16
+56
+24
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+26
+153
+36
+255
+</RGBA>
+<RGBA>
+86
+158
+61
+255
+</RGBA>
+<RGBA>
+54
+90
+54
+255
+</RGBA>
+<RGBA>
+60
+149
+78
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+90
+100
+125
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 13-->
+<Sector>
+<Volume>
+<Vec3f>
+215
+11
+41
+</Vec3f>
+23
+63
+198
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+122
+160
+161
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 14-->
+<Sector>
+<Volume>
+<Vec3f>
+16
+73
+0
+</Vec3f>
+7
+22
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+107
+130
+171
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 15-->
+<Sector>
+<Volume>
+<Vec3f>
+214
+107
+0
+</Vec3f>
+24
+56
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 16-->
+<Sector>
+<Volume>
+<Vec3f>
+35
+203
+0
+</Vec3f>
+49
+45
+25
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 17-->
+<Sector>
+<Volume>
+<Vec3f>
+84
+216
+0
+</Vec3f>
+99
+26
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 18-->
+<Sector>
+<Volume>
+<Vec3f>
+211
+122
+0
+</Vec3f>
+3
+26
+25
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 19-->
+<Sector>
+<Volume>
+<Vec3f>
+183
+203
+0
+</Vec3f>
+32
+45
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 20-->
+<Sector>
+<Volume>
+<Vec3f>
+214
+162
+0
+</Vec3f>
+38
+87
+25
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 21-->
+<Sector>
+<Volume>
+<Vec3f>
+222
+211
+24
+</Vec3f>
+12
+33
+66
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+128
+128
+128
+255
+</RGBA>
+<RGBA>
+64
+64
+64
+255
+</RGBA>
+</Color>
+</Sector>
+<!--setor 22-->
+<Sector>
+<Volume>
+<Vec3f>
+74
+210
+0
+</Vec3f>
+10
+34
+10
+</Volume>
+<Connections>
+0
+0
+0
+0
+0
+0
+</Connections>
+<Color>
+<RGBA>
+0
+0
+255
+255
+</RGBA>
+<RGBA>
+255
+0
+0
+255
+</RGBA>
+<RGBA>
+0
+255
+0
+255
+</RGBA>
+<RGBA>
+255
+255
+255
+255
+</RGBA>
+<RGBA>
+67
+70
+214
+255
+</RGBA>
+<RGBA>
+48
+59
+180
+255
+</RGBA>
+</Color>
+</Sector>
+<Actors>
+<Actor>
+<Name>
+player
+</Name>
+<Location>
+1
+</Location>
+<Class>
+test
+</Class>
+</Actor>
+</Actors>
+<Camera>
+0
+</Camera>
+<Rules>
+
+<ClassTransitions>
+3010 27 11
+</ClassTransitions>
+<ClassTransitions>
+3010 37 11
+</ClassTransitions>
+
+<ClassTransitions>
+3011 27 3010
+</ClassTransitions>
+<ClassTransitions>
+3011 37 3010
+</ClassTransitions>
+<ClassTransitions>
+11 37 3011
+</ClassTransitions>
+<ClassTransitions>
+12 37 3011
+</ClassTransitions>
+<Appearance>
+3011 hunter/guns_opening.svg
+</Appearance>
+
+<Sensor>
+504 0 11 506
+</Sensor>
+<Sensor>
+503 0 11 506
+</Sensor>
+<Sensor>
+502 0 11 512
+</Sensor>
+
+<Sensor>
+503 3 11 518
+</Sensor>
+
+<Sensor>
+503 1 11 516
+</Sensor>
+<Sensor>
+503 2 11 520
+</Sensor>
+
+
+
+<Sensor>
+25 0 11 21
+</Sensor>
+
+<Sensor>
+26 0 11 21
+</Sensor>
+
+
+
+<Sensor>
+498 0 11 499
+</Sensor>
+
+<Sensor>
+498 0 4096 499
+</Sensor>
+<Sensor>
+504 0 4096 506
+</Sensor>
+<Sensor>
+503 0 4096 506
+</Sensor>
+<Sensor>
+502 0 4096 512
+</Sensor>
+
+<Sensor>
+503 3 4096 518
+</Sensor>
+
+<Sensor>
+503 1 4096 516
+</Sensor>
+<Sensor>
+503 2 4096 520
+</Sensor>
+
+
+
+<Sensor>
+25 0 4096 21
+</Sensor>
+
+<Sensor>
+26 0 4096 21
+</Sensor>
+
+
+<Appearance>
+5 hunter/driller_big.obj
+</Appearance>
+<Appearance>
+8 hunter/torpedo.obj
+</Appearance>
+<Appearance>
+21 hunter/vacao_andando_1.obj
+</Appearance>
+<Appearance>
+22 hunter/vacao_andando_2.obj
+</Appearance>
+<Appearance>
+23 hunter/vacao_andando_3.obj
+</Appearance>
+<Appearance>
+24 hunter/vacao_andando_4.obj
+</Appearance>
+<Appearance>
+25 hunter/vacao_andando_1.obj
+</Appearance>
+<Appearance>
+26 hunter/vacao_parado_1.obj
+</Appearance>
+<Appearance>
+28 hunter/vacao_morto_2.obj
+</Appearance>
+<Appearance>
+29 hunter/vacao_parado_1.obj
+</Appearance>
+<Appearance>
+30 hunter/vacao_parado_1.obj
+</Appearance>
+<Appearance>
+39 hunter/driller_big.obj
+</Appearance>
+<Appearance>
+6 hunter/morcego.obj
+</Appearance>
+<Appearance>
+9 hunter/torpedo.obj
+</Appearance>
+<Appearance>
+11 hunter/guns_still.svg
+</Appearance>
+<Appearance>
+498 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+499 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+501 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+502 hunter/jane_run2.obj
+</Appearance>
+<Appearance>
+503 hunter/jane_run3.obj
+</Appearance>
+<Appearance>
+504 hunter/jane_run4.obj
+</Appearance>
+<Appearance>
+505 hunter/jane_run5.obj
+</Appearance>
+<Appearance>
+506 hunter/jane_fire1.obj
+</Appearance>
+<Appearance>
+507 hunter/jane_fire2.obj
+</Appearance>
+<Appearance>
+511 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+515 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+516 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+517 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+518 hunter/jane_run1.obj
+</Appearance>
+<Appearance>
+4096 hunter/jane_run1.obj
+</Appearance>
+
+
+
+
+<Collisions>
+6 11 112
+</Collisions>
+<Collisions>
+6 8 112
+</Collisions>
+<Collisions>
+6 113 112
+</Collisions>
+<Collisions>
+8 6 113
+</Collisions>
+<Collisions>
+11 6 114
+</Collisions>
+<Collisions>
+21 8 28
+</Collisions>
+<Collisions>
+22 8 28
+</Collisions>
+<Collisions>
+23 8 28
+</Collisions>
+<Collisions>
+24 8 28
+</Collisions>
+<Collisions>
+25 8 28
+</Collisions>
+<Collisions>
+26 8 28
+</Collisions>
+<Collisions>
+27 8 28
+</Collisions>
+<Collisions>
+29 8 28
+</Collisions>
+<Collisions>
+30 8 28
+</Collisions>
+
+<Collisions>
+21 113 28
+</Collisions>
+<Collisions>
+22 113 28
+</Collisions>
+<Collisions>
+23 113 28
+</Collisions>
+<Collisions>
+24 113 28
+</Collisions>
+<Collisions>
+25 113 28
+</Collisions>
+<Collisions>
+26 113 28
+</Collisions>
+<Collisions>
+27 113 28
+</Collisions>
+<Collisions>
+29 113 28
+</Collisions>
+<Collisions>
+30 113 28
+</Collisions>
+<Collisions>
+11 39 40
+</Collisions>
+
+<Actions>
+11 2 0
+</Actions>
+<Actions>
+13 2 0
+</Actions>
+<Appearance>
+13 hunter/guns_shield.svg
+</Appearance>
+<ClassTransitions>
+11 2 13
+</ClassTransitions>
+<ClassTransitions>
+13 27 11
+</ClassTransitions>
+<ClassTransitions>
+115 27 116
+</ClassTransitions>
+<ClassTransitions>
+113 27 115
+</ClassTransitions>
+<ClassTransitions>
+116 27 113
+</ClassTransitions>
+<Appearance>
+113 hunter/electric1.svg
+</Appearance>
+<Appearance>
+115 hunter/electric2.svg
+</Appearance>
+
+<Collisions>
+11 9 -32
+</Collisions>
+<Collisions>
+11 90 -28
+</Collisions>
+
+
+<Collisions>
+4096 8 -33
+</Collisions>
+
+
+<Collisions>
+501 8 12
+</Collisions>
+<Collisions>
+502 8 12
+</Collisions>
+<Collisions>
+503 8 12
+</Collisions>
+<Collisions>
+504 8 12
+</Collisions>
+<Collisions>
+505 8 12
+</Collisions>
+<Collisions>
+506 8 12
+</Collisions>
+<Collisions>
+507 8 12
+</Collisions>
+<Collisions>
+508 8 12
+</Collisions>
+<Collisions>
+509 8 12
+</Collisions>
+<Collisions>
+510 8 12
+</Collisions>
+<Collisions>
+511 8 12
+</Collisions>
+<Collisions>
+512 8 12
+</Collisions>
+<Collisions>
+513 8 12
+</Collisions>
+<Collisions>
+514 8 12
+</Collisions>
+<Collisions>
+515 8 12
+</Collisions>
+<Collisions>
+516 8 12
+</Collisions>
+<Collisions>
+517 8 12
+</Collisions>
+<Collisions>
+518 8 12
+</Collisions>
+<ClassTransitions>
+-25 27 11
+</ClassTransitions>
+<ClassTransitions>
+1011 27 -25
+</ClassTransitions>
+
+<ClassTransitions>
+511 27 501
+</ClassTransitions>
+<ClassTransitions>
+512 27 511
+</ClassTransitions>
+
+<ClassTransitions>
+513 27 501
+</ClassTransitions>
+<ClassTransitions>
+514 27 513
+</ClassTransitions>
+
+<ClassTransitions>
+505 27 501
+</ClassTransitions>
+<ClassTransitions>
+504 27 505
+</ClassTransitions>
+<ClassTransitions>
+503 27 504
+</ClassTransitions>
+<ClassTransitions>
+502 27 503
+</ClassTransitions>
+<ClassTransitions>
+501 27 502
+</ClassTransitions>
+
+<ClassTransitions>
+507 27 514
+</ClassTransitions>
+<ClassTransitions>
+506 27 507
+</ClassTransitions>
+<ClassTransitions>
+29 27 21
+</ClassTransitions>
+<ClassTransitions>
+30 27 29
+</ClassTransitions>
+<ClassTransitions>
+21 27 22
+</ClassTransitions>
+<ClassTransitions>
+25 27 21
+</ClassTransitions>
+<ClassTransitions>
+24 27 25
+</ClassTransitions>
+<ClassTransitions>
+23 27 24
+</ClassTransitions>
+<ClassTransitions>
+22 27 23
+</ClassTransitions>
+
+<ClassTransitions>
+11 0 12
+</ClassTransitions>
+<ClassTransitions>
+12 27 11
+</ClassTransitions>
+<ClassTransitions>
+-6 27 13
+</ClassTransitions>
+<ClassTransitions>
+114 27 -6
+</ClassTransitions>
+<ClassTransitions>
+8 14 113
+</ClassTransitions>
+<ClassTransitions>
+40 27 11
+</ClassTransitions>
+<ClassTransitions>
+5 14 39
+</ClassTransitions>
+
+<ClassTransitions>
+515 27 501
+</ClassTransitions>
+<ClassTransitions>
+516 27 515
+</ClassTransitions>
+<ClassTransitions>
+517 27 501
+</ClassTransitions>
+<ClassTransitions>
+518 27 517
+</ClassTransitions>
+<ClassTransitions>
+519 27 501
+</ClassTransitions>
+<ClassTransitions>
+520 27 519
+</ClassTransitions>
+
+
+
+
+<Appearance>
+15 hunter/guns_fire2.svg
+</Appearance>
+<Appearance>
+14 hunter/guns_fire1.svg
+</Appearance>
+<ClassTransitions>
+15 27 11
+</ClassTransitions>
+<ClassTransitions>
+-10 27 501
+</ClassTransitions>
+
+<ClassTransitions>
+499 27 501
+</ClassTransitions>
+
+<ClassTransitions>
+14 27 15
+</ClassTransitions>
+<ClassTransitions>
+11 35 14
+</ClassTransitions>
+<Spawner>
+14 35 8 27
+</Spawner>
+<Spawner>
+4096 35 9 27
+</Spawner>
+<Spawner>
+507 27 90 27
+</Spawner>
+
+<Spawner>
+29 27 9 27
+</Spawner>
+
+<Actions>
+501 27 0
+</Actions>
+
+<Actions>
+515 27 6
+</Actions>
+<Actions>
+517 27 7
+</Actions>
+<Actions>
+519 27 7
+</Actions>
+
+
+<Actions>
+502 27 0
+</Actions>
+
+<Actions>
+504 27 0
+</Actions>
+<Actions>
+505 27 0
+</Actions>
+
+<Actions>
+511 27 1
+</Actions>
+<Actions>
+513 27 3
+</Actions>
+
+<Actions>
+501 14 7
+</Actions>
+<Actions>
+502 14 7
+</Actions>
+<Actions>
+503 14 7
+</Actions>
+<Actions>
+504 14 7
+</Actions>
+<Actions>
+505 14 7
+</Actions>
+
+<Actions>
+5 27 0
+</Actions>
+<Actions>
+6 27 0
+</Actions>
+<Actions>
+112 27 12
+</Actions>
+<Actions>
+8 27 0
+</Actions>
+<Actions>
+8 14 12
+</Actions>
+<Actions>
+6 14 7
+</Actions>
+<Actions>
+6 14 7
+</Actions>
+<Actions>
+21 14 6
+</Actions>
+<Actions>
+22 14 6
+</Actions>
+<Actions>
+23 14 6
+</Actions>
+<Actions>
+24 14 6
+</Actions>
+<Actions>
+25 14 6
+</Actions>
+<Actions>
+9 27 0
+</Actions>
+<Actions>
+90 27 0
+</Actions>
+<Actions>
+21 27 0
+</Actions>
+<Actions>
+22 27 0
+</Actions>
+<Actions>
+23 27 0
+</Actions>
+<Actions>
+24 27 0
+</Actions>
+<Actions>
+9 14 12
+</Actions>
+
+
+
+<ActionSounds>
+6 14 hunter/computer.wav
+</ActionSounds>
+
+<ActionSounds>
+112 14 hunter/spark.wav
+</ActionSounds>
+<ActionSounds>
+14 35 hunter/shot.wav
+</ActionSounds>
+<ActionSounds>
+29 27 hunter/shot.wav
+</ActionSounds>
+<ActionSounds>
+507 27 hunter/shot.wav
+</ActionSounds>
+<ActionSounds>
+21 14 hunter/mrroboto.wav
+</ActionSounds>
+<ActionSounds>
+22 14 hunter/mrroboto.wav
+</ActionSounds>
+<ActionSounds>
+23 14 hunter/mrroboto.wav
+</ActionSounds>
+<ActionSounds>
+24 14 hunter/mrroboto.wav
+</ActionSounds>
+<ActionSounds>
+25 14 hunter/mrroboto.wav
+</ActionSounds>
+
+
+
+
+
+
+
+
+
+
+
+
+</Rules>
+</BZK2>

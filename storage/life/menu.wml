@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN""http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="0" title="menu" style="top:50%;left:20%" > <!--music="hunter/angstrontheme.wav"-->
+<img src="title.svg"/>
+<img src="logo.svg"/>
+<br/>
+<p>Ep2: Secret Voices</p>
+<br/>
+<a href="game.restart()">  New game</a>
+<a href="game.resume()">Back to game</a>
+<a href="#3">Networked game</a>
+<a href="#6">Silly slideshow</a>
+<a href="#2">  More info</a>
+<a href="game.exit()">    Quit</a>
+<on key="enter" sound="hunter/apert.wav"/>
+<on key="up" sound="hunter/alert.wav"/>
+<on key="down" sound="hunter/alert.wav"/>
+</card>
+
+<object mapfile="life/prison/prison.bzk2.opt" watermark="common/watermark.svg" />
+
+<card id="2" title="info" style="top:0%;left:5%">
+<img src="title.svg"/>
+<img src="bg.svg"/>
+<p>Angstron 2</p>
+<br/><br/>
+<a href="#6">key configuration</a>
+<a href="#4">who created this?</a>
+<a href="back();">go to main menu</a>
+</card>
+
+<card id="3" title="keys" music="hunter/angstron2theme.wav">
+<img src="title.svg"/>
+<br/>
+<p>Multiplayer game (in form of deathmatch)</p>
+<p>is highly experimental and can freeze </p>
+<p>your system.Make sure you're connected to</p>
+<p>a TCP/IP network (only players in the same</p>
+<p>subnet can play togheter)</p>
+<p>The system will look freezed for a few seconds</p>
+<p>and the game will start. The guest player must join</p>
+<p>before the host start the game.</p>
+<br/>
+<a href="game.startnetworkedgame()">start tcp game</a>
+<a href="game.joinnetworkedgame()">join game</a>
+<a href="#0;">back to menu</a>
+</card>
+
+<card id="4" title="about" style="left:0%">
+author:<br/>
+Daniel Monteiro<br/>
+no penguins were<br/>
+harmed on this<br/>
+game<br/>
+<a href="back();">back to info menu</a>
+</card>
+
+<card id="5" title="keys">
+<img src="title.svg"/>
+<img src="bg.svg"/>
+To use this game:<br/>
+enter=Fire rifle<br/>
+arrow=Turn around<br/>
+up=Walk forward<br/>
+down=Shields<br/>
+escape=back<br/>
+<a href="back();">back to info menu</a>
+</card>
+
+<card id="6" title="keys">
+<img src="chapters/imagem2a.svg"/>
+<a href="#7;">next</a>
+</card>
+
+<card id="7" title="keys">
+<img src="chapters/imagem2b.svg"/>
+<a href="#8;">next</a>
+</card>
+
+<card id="8" title="keys">
+<img src="chapters/imagem2a.svg"/>
+<a href="#9;">next</a>
+</card>
+
+<card id="9" title="keys">
+<img src="chapters/imagem4a.svg"/>
+<a href="#10;">next</a>
+</card>
+
+<card id="10" title="keys">
+<img src="chapters/imagem4b.svg"/>
+<a href="#11;">next</a>
+</card>
+
+
+<card id="11" title="keys">
+<img src="chapters/imagem5a.svg"/>
+<a href="#12;">next</a>
+</card>
+
+<card id="12" title="keys">
+<img src="chapters/imagem5b.svg"/>
+<a href="#13;">next</a>
+</card>
+
+<card id="13" title="keys">
+<img src="chapters/imagem6.svg"/>
+<a href="#14;">next</a>
+</card>
+
+<card id="14" title="keys">
+<img src="chapters/imagem7a.svg"/>
+<a href="#15;">next</a>
+</card>
+
+<card id="15" title="keys">
+<img src="chapters/imagem7b.svg"/>
+<a href="#16;">next</a>
+</card>
+
+<card id="16" title="keys">
+<img src="chapters/imagem9a.svg"/>
+<a href="#17;">next</a>
+</card>
+
+<card id="17" title="keys">
+<img src="chapters/imagem9b.svg"/>
+<a href="#18;">next</a>
+</card>
+
+<card id="18" title="keys">
+<img src="chapters/imagemAa.svg"/>
+<a href="#19;">next</a>
+</card>
+
+<card id="18" title="keys">
+<img src="chapters/imagemAb.svg"/>
+<a href="#0;">back to info menu</a>
+</card>
+
+
+

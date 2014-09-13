@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN""http://www.wapforum.org/DTD/wml_1.1.xml">
+
+<wml>
+
+<card id="0" title="menu" style="top:30%;left:20%" music="angstron2/angstrontheme.wav">
+<img src="title.svg"/>
+<br/>
+<p>Droid Hunter</p>
+<br/>
+<a href="game.restart()">  New game</a>
+<a href="game.resume()">Back to game</a>
+<a href="#31">Networked game</a>
+<a href="#8">  Prologue</a>
+<a href="#2">  More info</a>
+<a href="game.exit()">    Quit</a>
+<on key="enter" sound="angstron2/apert.wav"/>
+<on key="up" sound="angstron2/alert.wav"/>
+<on key="down" sound="angstron2/alert.wav"/>
+</card>
+
+<object mapfile="angstron2/floor1.bzk2" watermark="common/watermark.svg" />
+
+<card id="2" title="info" style="top:0%;left:5%">
+<img src="title.svg"/>
+<img src="bg.svg"/>
+<p>Angstron 2</p>
+<br/><br/>
+<a href="#5">key configuration</a>
+<a href="#4">who created this?</a>
+<a href="back();">go to main menu</a>
+</card>
+
+<card id="3" title="options">
+<img src="title.svg"/>
+<img src="bg.svg"/>
+No options this time!
+<a href="back();">back to main menu</a>
+</card>
+
+<card id="4" title="about" style="left:0%">
+<img src="sara.svg"/>
+author:<br/>
+Daniel Monteiro<br/>
+no penguins were<br/>
+harmed on this<br/>
+game<br/>
+This goes to Sara.<br/>
+<a href="back();">back to info menu</a>
+</card>
+
+<card id="5" title="keys">
+<img src="title.svg"/>
+<img src="bg.svg"/>
+To use this game:<br/>
+enter=Fire rifle<br/>
+arrow=Turn around<br/>
+up=Walk forward<br/>
+down=Shields<br/>
+escape=back<br/>
+<a href="back();">back to info menu</a>
+</card>
+
+
+<card id="6" title="game over">
+<img src="gameover.svg"/>
+Game Over!<br/>
+<a href="#0">back to menu</a>
+</card>
+
+<card id="7" title="win">
+<img src="end2.svg"/>
+Poor jane27<br/>
+Maybe she was<br/>
+like me.<br/>
+<a href="#30">next</a>
+</card>
+
+<card id="8" title="chapter0">
+<img src="chapter0.svg"/>
+Prologue: <br/>
+Soldier Jane<br/>
+This is jane37.<br/>
+<a href="#9">next</a>
+</card>
+<card id="9" title="chapter0b">
+<img src="chapter0b.svg"/>
+She's just another<br/>
+replica.<br/>
+She serves in a<br/>
+platoon from the<br/>
+7th generation<br/>
+of replicas.<br/>
+<a href="#12">continue</a>
+</card>
+
+<card id="10" title="keys">
+-"I've been waiting for you!<br/>
+...<br/>
+I'll be the only jane around here!<br/>
+Time to no longer excist!"<br/>
+Its jane26!<br/>
+She's behind it since the<br/>
+beggining!<br/>
+<a href="back();">ok</a>
+</card>
+<card id="11" title="keys">
+Not used.
+Get off my lawn!
+</card>
+
+<card id="12" title="keys">
+<img src="chapter0c.svg"/>
+<br/>
+shes doesnt care<br/> 
+for hers oficial<br/>
+missions. Shes <br/>
+trying to be<br/>
+someone and 37<br/>
+is not a name<br/> 
+<a href="#0">next</a>
+</card>
+
+<card id="13" title="keys" music="angstron2/mood.wav">
+<img src="chapter1.svg"/>
+Chapter 1:Arrival<br/>
+The mission is<br/>
+very simple:<br/>
+infiltrate and<br/> 
+re-gain control<br/>
+of the complex.<br/> 
+<a href="#16">next</a>
+</card>
+<card id="14" title="keys">
+<img src="chapter1b.svg"/>
+<a href="#15">next</a>
+</card>
+<card id="15" title="keys">
+<img src="chapter1c.svg"/>
+
+<a href="#16">next</a>
+</card>
+<card id="16" title="keys" music="angstron2/mood.wav">
+<img src="chapter1d.svg"/>
+engagement rules:<br/>
+terminate all<br/>
+moving and<br/>
+charging.<br/>
+ready to start<br/>
+<a href="#1">next</a>
+</card>
+<card id="17" title="keys">
+<img src="chapter2.svg"/>
+Chapter 2:<br/>
+They're everywere<br/>
+You have to use<br/>
+the energy shield<br/>
+to reduce the<br/>
+fall speed<br/>
+<a href="#18">next</a>
+</card>
+<card id="18" title="keys">
+<img src="chapter2b.svg"/>
+A acurate shot is<br/>
+required to such<br/>
+a bold move...<br/>
+<a href="#19">next</a>
+</card>
+<card id="19" title="keys">
+<img src="chapter2c.svg"/>
+and a brave diver.<br/>
+<a href="#20">next</a>
+</card>
+<card id="20" title="keys">
+<img src="chapter2d.svg"/>
+you managed to<br/>
+land safely<br/>
+<a href="#1">next</a>
+</card>
+<card id="21" title="keys">
+<img src="chapter3.svg"/>
+Chapter 3:<br/>
+Take it slower<br/>
+Again, a dark<br/>
+vault. Looks<br/>
+deeper...<br/>
+<a href="#22">next</a>
+</card>
+<card id="22" title="keys">
+<img src="chapter3b.svg"/>
+"Gonna try doing<br/>
+the same from the<br/>
+last time!"<br/>
+<a href="#23">next</a>
+</card>
+<card id="23" title="keys">
+<img src="chapter3c.svg"/>
+You fail to attain<br/>
+control over the<br/>
+fall speed<br/>
+<a href="#24">next</a>
+</card>
+<card id="24" title="keys">
+<img src="chapter3d.svg"/>
+your suit absorbed<br/>
+most of the<br/>
+fall energy.<br/>
+You're not hurt, <br/>
+try not do it<br/>
+again<br/>
+<a href="#1">next</a>
+</card>
+<card id="25" title="keys">
+<img src="chapter4.svg"/>
+Chapter 4: <br/>
+Are friends<br/>
+eletric?<br/>
+<br/>
+What else can I<br/>
+expect?"<br/>
+<a href="#26">next</a>
+</card>
+<card id="26" title="keys">
+<img src="chapter4b.svg"/>
+Better get<br/>
+ready.<br/>
+You're almost<br/>
+there!<br/>
+<a href="#27">next</a>
+</card>
+<card id="27" title="keys">
+<img src="chapter4c.svg"/>
+Step out and<br/>
+face your Doom<br/>
+<a href="#1">next</a>
+</card>
+<card id="28" title="keys">
+<img src="end1.svg"/>
+She's got you!<br/>
+<a href="#29">next</a>
+</card>
+<card id="29" title="keys" music="angstron2/angstron2theme.wav">
+<img src="end1b.svg"/>
+Too bad.<br/>
+You died.<br/>
+The End<br/>
+<a href="#0;">back to menu</a>
+</card>
+<card id="30" title="keys" music="angstron2/angstron2theme.wav" >
+<img src="end2b.svg" />
+Epilogue:<br/>
+Infinity<br/>
+now its time<br/>
+to move on<br/>
+Time to go<br/>
+free.The End?<br/>
+<a href="#0;">back to menu</a>
+</card>
+<card id="31" title="keys" music="angstron2/angstron2theme.wav">
+<img src="title.svg"/>
+<br/>
+Sorry. This doesnt<br/>
+work for EZX.<br/>
+Go back to menu.<br/>
+<br/>
+<a href="game.startnetworkedgame()">start tcp game</a>
+<a href="game.joinnetworkedgame()">join game</a>
+<a href="#0;">back to menu</a>
+</card>
+
+
+<card id="32" title="net_die"  >
+<img src="gameover.svg" />
+You died!<br/>
+<a href="game.restart()">continue</a>
+</card>
+
+<card id="33" title="net_won"  >
+<img src="chapter1d.svg" />
+You killed your opponent!<br/>
+<a href="game.restart()">continue</a>
+</card>
