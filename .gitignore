@@ -26,3 +26,7 @@
 *.exe
 *.out
 *.app
+angstron2.data
+angstron2.html
+angstron2.js
+angstron2.wasm

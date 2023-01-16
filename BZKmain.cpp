@@ -1,3 +1,8 @@
+#ifdef __EMSCRIPTEN__
+#include <emscripten/html5.h>
+#include <emscripten/emscripten.h>
+#endif
+
 //using namespace std;
 #include "BZK_POSIX.h"
 #include "BZK_BaseIncludes.h"
@@ -219,6 +224,14 @@ extern void NET_SignalPlayer()
 #endif
 }
 
+void tickGame() {
+	BZK_SystemEvent SystemEvents;
+	GameApplet->Refresh();
+	while (SDL_PollEvent(&SystemEvents) ) {
+		GameApplet->FilterEvents(&SystemEvents);
+	}
+}
+
 
  void BZKmain(int argc, char *argv[])
 {
@@ -242,10 +255,10 @@ Time[1]=time(0);
 //exit(0);
 
 //for (int c=-6;c<8;c++)		cout<<"c="<<c<<"|->"<<BZK_FastMath::GetOpositeDirection(c)<<endl;   return;  
-int num;
-  int tmp;
-   BZK_FixP tmp2;	
-VAC_Actor *actor;
+	int num;
+  	int tmp;
+   	BZK_FixP tmp2;
+	VAC_Actor *actor;
     cout << "using " << STOREPATH << " as storage area" << endl;
     cout << "using math for " << sizeof(BZK_FixP) << " bytes (FPU/FIXP)" << endl;
     GameApplet = NULL;
@@ -271,6 +284,7 @@ VAC_Actor *actor;
 
     GameApplet->Start();
 
+#ifndef __EMSCRIPTEN__
     while (!quit) {
 #ifdef NETWORKSUPPORT
         if ( GameApplet->IsConnected() && GameApplet->GetDefaultGameView()==GameApplet->GetCurrentView()) {
@@ -367,13 +381,14 @@ VAC_Actor *actor;
 		else std::cout << "**less than two**" << std::endl;
         }
 #endif
+        tickGame();
 
-
-        GameApplet->Refresh();
-        SDL_PollEvent(&SystemEvents);
-        GameApplet->FilterEvents(&SystemEvents);
-        quit = GameApplet->WaitForNextCycle();
+		quit = GameApplet->WaitForNextCycle();
     }
+#else
+	 emscripten_set_main_loop(tickGame, 30, 1);
+#endif
+
 
     delete GameApplet;
 }

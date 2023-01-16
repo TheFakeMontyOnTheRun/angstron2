@@ -9,7 +9,9 @@ class VAC_Applet : public BZK_Applet {
     VAC_Engine *iEngine;
     VAC_DeviceIO *iDev;
     int iActiveID;
+#ifndef __EMSCRIPTEN__
     Mix_Music *music;
+#endif
     bool iQuit;
     bool iReady;
     int iDefaultGameView;
@@ -214,13 +216,13 @@ public:
         {
             GenerateFromXML(string(STOREPATH) + GetApplicationName() + string("/menu.wml"));
             //cout << "menus construidos" <<endl;
-
+#ifndef __EMSCRIPTEN__
             if (music != NULL) Mix_FreeMusic(music);
             cout << "music:" << iDisplay[iActiveID]->iMusicFile << endl;
             music = BZK_DevSound::GetInstance()->PlayMusic(iDisplay[iActiveID]->iMusicFile);
             // iDisplay[iActiveID]->GotFocus();
+#endif
         }
-
 
 
 
@@ -339,6 +341,7 @@ public:
             cout << "restored right on time!" << iActiveID << endl;
         }
 
+#ifndef __EMSCRIPTEN__
         if (CheckId(iActiveID) && (iActiveID > 0) && (PreviousMusic != iDisplay[iActiveID]->iMusicFile || iDisplay[iActiveID]->iRestartMusic)) {
             cout << "restart music:" << iDisplay[iActiveID]->iRestartMusic << endl;
             cout << "previous music:" << PreviousMusic << endl;
@@ -347,14 +350,21 @@ public:
             BZK_DevSound::GetInstance()->StopMusic();
             BZK_DevSound::GetInstance()->StopAllSounds();
             cout << "faded and stopped" << endl;
+
+#ifndef __EMSCRIPTEN__
             if (music != NULL)
                 Mix_FreeMusic(music);
+
             if (iDisplay[iActiveID]->iPlayMusic && iDisplay[iActiveID]->iMusicFile != "") {
                 music = BZK_DevSound::GetInstance()->PlayMusic(iDisplay[iActiveID]->iMusicFile);
                 PreviousMusic = iDisplay[iActiveID]->iMusicFile;
             } else
                 music = NULL;
+#endif
+
         }
+#endif
+
         if (CheckId(iActiveID) && (iActiveID > 0)) ///sem essa leitura, há um erro
             iDisplay[iActiveID]->GotFocus();
         //      if (iActiveID!=iDefaultGameView)  		BZK_DevSound::GetInstance()->FadeOut();
@@ -389,15 +399,18 @@ public:
         iReady = false;
         iEngine = NULL;
         iQuit = false;
+#ifndef __EMSCRIPTEN__
         music = NULL;
+#endif
         iConnected = false;
     }
     //----------------------------------------------------------------------------------------------
 
     ~VAC_Applet() {
+#ifndef __EMSCRIPTEN__
         if (music != NULL)
             Mix_FreeMusic(music);
-
+#endif
         for (int c = 0; c < iDisplay.TotalItems(); c++)
             if (c != iDefaultGameView)
                 delete iDisplay[c];

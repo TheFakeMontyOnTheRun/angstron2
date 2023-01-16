@@ -77,7 +77,9 @@ void BZK_UnloadBitmap(BZK_Bitmap *aBitmap)
 
 void BZK_Wait(long aTime)
 {
+#ifndef __EMSCRIPTEN__
 	SDL_Delay(aTime);
+#endif
 }
 
 BZK_Bitmap *BZK_GetVideoBuffer()

@@ -37,7 +37,6 @@ class BZK_DevSound:public BZK_DeviceOutput
 	ready=true;
       std::cout << "ok!"<<std::endl;
 	}
-      Mix_QuerySpec(&audio_rate, &audio_format, &audio_channels);        
     }
 
   ~BZK_DevSound()
