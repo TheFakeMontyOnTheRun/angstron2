@@ -50,69 +50,69 @@ void StartPipeMultiplayerSession()
 */
 
 #ifdef NETWORKSUPPORT
-bool ConnectToServer(string hostname)
-{
-    char buf[MAXDATASIZE];
-    int numbytes = 0;
-    string msg;
-    int new_fd; // listen on sock_fd, new connection on new_fd
 
-    int sockfd = init_client((char*) hostname.c_str(), "24243");
-    if (sockfd==-1) return false;
-    cout << "init client ok" << endl;
-    int myserver = 0;
-    int answer = 0;
+bool ConnectToServer(string hostname) {
+	char buf[MAXDATASIZE];
+	int numbytes = 0;
+	string msg;
+	int new_fd; // listen on sock_fd, new connection on new_fd
+
+	int sockfd = init_client((char *) hostname.c_str(), "24243");
+	if (sockfd == -1) return false;
+	cout << "init client ok" << endl;
+	int myserver = 0;
+	int answer = 0;
 
 
-
-    if (myserver == 0) {
-        myserver = init_server("24244");
-        cout << "server initialized @" << myserver << endl;
-    }
-    if (answer == 0) {
-        answer = waitforclient(myserver, msg);
-        cout << "waiting for devices @" << answer << endl;
-    }
-    numbytes = recv(sockfd, buf, MAXDATASIZE - 1, 0);
-    buf[numbytes] = '\0';
-    msg = "connect";
-    send(answer, msg.c_str(), msg.length(), 0);
-    pipe1[1] = answer;
-    pipe0[0] = sockfd;
-    pid = 1;
-    return true;
+	if (myserver == 0) {
+		myserver = init_server("24244");
+		cout << "server initialized @" << myserver << endl;
+	}
+	if (answer == 0) {
+		answer = waitforclient(myserver, msg);
+		cout << "waiting for devices @" << answer << endl;
+	}
+	numbytes = recv(sockfd, buf, MAXDATASIZE - 1, 0);
+	buf[numbytes] = '\0';
+	msg = "connect";
+	send(answer, msg.c_str(), msg.length(), 0);
+	pipe1[1] = answer;
+	pipe0[0] = sockfd;
+	pid = 1;
+	return true;
 }
 
-void StartServer()
-{
-    char buf[MAXDATASIZE];
-    int numbytes = 0;
-    int sockfd;
-    int new_fd; // listen on sock_fd, new connection on new_fd
-    int myclient = -1024;
-    string msg;
-    string clientip;
-    sockfd = init_server("24243");
+void StartServer() {
+	char buf[MAXDATASIZE];
+	int numbytes = 0;
+	int sockfd;
+	int new_fd; // listen on sock_fd, new connection on new_fd
+	int myclient = -1024;
+	string msg;
+	string clientip;
+	sockfd = init_server("24243");
 
-    printf("server: waiting for connections...\n");
-    new_fd = waitforclient(sockfd, clientip);
-    cout << "recebendo conexão de " << clientip << endl;
-    msg = "connect";
-    sleep(5);
-    send(new_fd, msg.c_str(), msg.length(), 0);
-    if (myclient == -1024) {
-        myclient = init_client((char*) clientip.c_str(), "24244");
-        cout << "connecting back @" << myclient << endl;
-    }
-    numbytes = recv(myclient, buf, MAXDATASIZE - 1, 0);
-    buf[numbytes] = '\0';
-    msg = buf;
-    cout << "veio:" << msg << " em " << numbytes << " bytes" << endl;
-    pipe0[1] = new_fd;
-    pipe1[0] = myclient;
-    pid = 0;
+	printf("server: waiting for connections...\n");
+	new_fd = waitforclient(sockfd, clientip);
+	cout << "recebendo conexão de " << clientip << endl;
+	msg = "connect";
+	sleep(5);
+	send(new_fd, msg.c_str(), msg.length(), 0);
+	if (myclient == -1024) {
+		myclient = init_client((char *) clientip.c_str(), "24244");
+		cout << "connecting back @" << myclient << endl;
+	}
+	numbytes = recv(myclient, buf, MAXDATASIZE - 1, 0);
+	buf[numbytes] = '\0';
+	msg = buf;
+	cout << "veio:" << msg << " em " << numbytes << " bytes" << endl;
+	pipe0[1] = new_fd;
+	pipe1[0] = myclient;
+	pid = 0;
 }
+
 #endif
+
 /*
 string GetMyIp()
 {
@@ -178,65 +178,59 @@ void SearchServer()
     return;
     }*/
 
-extern  void JoinGame()
-{
+extern void JoinGame() {
 #ifdef NETWORKSUPPORT
-		string tmp;  
-    		tmp=WaitForBroadcast();
-		sleep(2);
-    		ConnectToServer(tmp);
+	string tmp;
+	tmp = WaitForBroadcast();
+	sleep(2);
+	ConnectToServer(tmp);
 #endif
 }
 
-extern void StartNetworkedGame()
-{
+extern void StartNetworkedGame() {
 #ifdef NETWORKSUPPORT
-		GlobalBroadcast();
-    		StartServer();
-#endif
-}
-
-
-extern void NET_WaitForPlayer()
-{
-#ifdef NETWORKSUPPORT
-                if (pid) {
-	            int tmp;
-                    read(pipe0[0], &tmp, 4);
-                } else {
-                    int tmp;
-                    read(pipe1[0], &tmp, 4);
-                }
+	GlobalBroadcast();
+	StartServer();
 #endif
 }
 
 
-extern void NET_SignalPlayer()
-{
+extern void NET_WaitForPlayer() {
 #ifdef NETWORKSUPPORT
-                if (pid) {
-	            int tmp=1;
-                    write(pipe1[1], &tmp, 4);
-                } else {
-                    int tmp=1;
-                    write(pipe0[1], &tmp, 4);
-                }
+	if (pid) {
+		int tmp;
+		read(pipe0[0], &tmp, 4);
+	} else {
+		int tmp;
+		read(pipe1[0], &tmp, 4);
+	}
+#endif
+}
+
+
+extern void NET_SignalPlayer() {
+#ifdef NETWORKSUPPORT
+	if (pid) {
+		int tmp = 1;
+		write(pipe1[1], &tmp, 4);
+	} else {
+		int tmp = 1;
+		write(pipe0[1], &tmp, 4);
+	}
 #endif
 }
 
 void tickGame() {
 	BZK_SystemEvent SystemEvents;
 	GameApplet->Refresh();
-	while (SDL_PollEvent(&SystemEvents) ) {
-		GameApplet->FilterEvents(&SystemEvents);
-	}
+	SDL_PollEvent(&SystemEvents);
+	GameApplet->FilterEvents(&SystemEvents);
 }
 
 
- void BZKmain(int argc, char *argv[])
-{
+void BZKmain(int argc, char *argv[]) {
 
-int Time[2];
+	int Time[2];
 /*
 Time[0]=time(0);
 for (int c=0;c<0x8FFFFFF;c++)
@@ -256,139 +250,145 @@ Time[1]=time(0);
 
 //for (int c=-6;c<8;c++)		cout<<"c="<<c<<"|->"<<BZK_FastMath::GetOpositeDirection(c)<<endl;   return;  
 	int num;
-  	int tmp;
-   	BZK_FixP tmp2;
+	int tmp;
+	BZK_FixP tmp2;
 	VAC_Actor *actor;
-    cout << "using " << STOREPATH << " as storage area" << endl;
-    cout << "using math for " << sizeof(BZK_FixP) << " bytes (FPU/FIXP)" << endl;
-    GameApplet = NULL;
-    //   std::cout << sizeof(BZK_FixP) <<endl;    
-    //   StartPipeMultiplayerSession();
-    // connected=true;
-    
-    
-    GameApplet = new VAC_Applet();
-    atexit(BZK_Quit);
-    if (argc > 0)
-      GameApplet->SetApplicationName(argv[0]);
-        else
-     GameApplet->SetApplicationName("hunter");
+	cout << "using " << STOREPATH << " as storage area" << endl;
+	cout << "using math for " << sizeof(BZK_FixP) << " bytes (FPU/FIXP)" << endl;
+	GameApplet = NULL;
+	//   std::cout << sizeof(BZK_FixP) <<endl;
+	//   StartPipeMultiplayerSession();
+	// connected=true;
 
 
-    if (GameApplet == NULL)
-        exit(ERR_OUT_OF_MEMORY);
+	GameApplet = new VAC_Applet();
+	atexit(BZK_Quit);
+	if (argc > 0)
+		GameApplet->SetApplicationName(argv[0]);
+	else
+		GameApplet->SetApplicationName("hunter");
 
-    BZK_SystemEvent SystemEvents;
-    bool quit = 0;
+
+	if (GameApplet == NULL)
+		exit(ERR_OUT_OF_MEMORY);
+
+	BZK_SystemEvent SystemEvents;
+	bool quit = 0;
 
 
-    GameApplet->Start();
+	GameApplet->Start();
 
 #ifndef __EMSCRIPTEN__
-    while (!quit) {
+	while (!quit) {
 #ifdef NETWORKSUPPORT
-        if ( GameApplet->IsConnected() && GameApplet->GetDefaultGameView()==GameApplet->GetCurrentView()) {
-	    if  (GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount() <= 1)
-		NET_InitOK=0;
+		if (GameApplet->IsConnected() && GameApplet->GetDefaultGameView() == GameApplet->GetCurrentView()) {
+			if (GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount() <= 1)
+				NET_InitOK = 0;
 
 
-            if (!NET_InitOK && GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount() > 1) {
-                if (pid) {
-                    ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0))->SetClass(11);
-                    ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2))->SetClass(4096);
+			if (!NET_InitOK && GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount() > 1) {
+				if (pid) {
+					((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0))->SetClass(11);
+					((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2))->SetClass(4096);
 
-                } else
-                	{
-               		((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2))->SetClass(11);
-	                ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0))->SetClass(4096);
-                	}	
+				} else {
+					((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2))->SetClass(11);
+					((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0))->SetClass(4096);
+				}
 
-                NET_InitOK = 1;
-            }
-
-            if (GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount() > 1) {
-                if (pid)
-                    GameApplet->GetDefaultGameView()->GetActors()->SetActivePlayer(0);
-                else
-                    GameApplet->GetDefaultGameView()->GetActors()->SetActivePlayer(2);
-                    
-                if (pid) {
-
-                    tmp =GameApplet->GetDefaultGameView()->lastkeycode;
-                    write(pipe1[1], &tmp, 4);
-
-                    read(pipe0[0], &num, 4);
-		  /*
-		    for (int c=num;c<GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount();c++)
-			{
-			actor=new VAC_Actor();
-			GameApplet->GetDefaultGameView()->GetActors()->AddActor(*actor);
-			}
-		*/
-			if (num > GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount())
-				num=GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount();
-		    for (int c=0;c<num;c++)
-			{
-
-			if (c==0 && c==2) continue;
-
-	                    read(pipe0[0], &tmp, 4);
-		            ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->SetAngle(tmp);
-	                    read(pipe0[0], &tmp2, 4);
-		            ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetPosition()->SetX(tmp2);
-	                    read(pipe0[0], &tmp2, 4);
-		            ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetPosition()->SetY(tmp2);
-	                    read(pipe0[0], &tmp2, 4);
-		            ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetPosition()->SetZ(tmp2);
-	                    read(pipe0[0], &tmp, 4);
-		            ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->SetCurrentSector(tmp);
+				NET_InitOK = 1;
 			}
 
-                    read(pipe0[0], &tmp, 4);
-                    ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2))->PushEvent(tmp,1);
-		    GameApplet->GetDefaultGameView()->GetWorld()->peersector=GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2)->GetCurrentSector();
+			if (GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount() > 1) {
+				if (pid)
+					GameApplet->GetDefaultGameView()->GetActors()->SetActivePlayer(0);
+				else
+					GameApplet->GetDefaultGameView()->GetActors()->SetActivePlayer(2);
 
-                } else {
-                    int tmp;
+				if (pid) {
+
+					tmp = GameApplet->GetDefaultGameView()->lastkeycode;
+					write(pipe1[1], &tmp, 4);
+
+					read(pipe0[0], &num, 4);
+					/*
+					  for (int c=num;c<GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount();c++)
+					  {
+					  actor=new VAC_Actor();
+					  GameApplet->GetDefaultGameView()->GetActors()->AddActor(*actor);
+					  }
+				  */
+					if (num > GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount())
+						num = GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount();
+					for (int c = 0; c < num; c++) {
+
+						if (c == 0 && c == 2) continue;
+
+						read(pipe0[0], &tmp, 4);
+						((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->SetAngle(tmp);
+						read(pipe0[0], &tmp2, 4);
+						((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetPosition()->SetX(tmp2);
+						read(pipe0[0], &tmp2, 4);
+						((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetPosition()->SetY(tmp2);
+						read(pipe0[0], &tmp2, 4);
+						((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetPosition()->SetZ(tmp2);
+						read(pipe0[0], &tmp, 4);
+						((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->SetCurrentSector(
+								tmp);
+					}
+
+					read(pipe0[0], &tmp, 4);
+					((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(2))->PushEvent(tmp, 1);
+					GameApplet->GetDefaultGameView()->GetWorld()->peersector = GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+							2)->GetCurrentSector();
+
+				} else {
+					int tmp;
 
 
-		    read(pipe1[0], &tmp, 4);
-                    ((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0))->PushEvent(tmp,1);               
-		    GameApplet->GetDefaultGameView()->GetWorld()->peersector=GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0)->GetCurrentSector();
-		   num=GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount();
-		    write(pipe0[1], &num, 4);
-		    for (int c=0;c<num;c++)
-			{
-			if (c==0 && c==2) continue;
+					read(pipe1[0], &tmp, 4);
+					((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(0))->PushEvent(tmp, 1);
+					GameApplet->GetDefaultGameView()->GetWorld()->peersector = GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+							0)->GetCurrentSector();
+					num = GameApplet->GetDefaultGameView()->GetActors()->GetActorsCount();
+					write(pipe0[1], &num, 4);
+					for (int c = 0; c < num; c++) {
+						if (c == 0 && c == 2) continue;
 
-		            tmp=((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetAngle();
-	                     write(pipe0[1], &tmp, 4);
-		            tmp2=((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetPosition()->GetX();
-	                     write(pipe0[1], &tmp2, 4);
-		            tmp2=((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetPosition()->GetY();
-	                     write(pipe0[1], &tmp2, 4);
-		            tmp2=((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetPosition()->GetZ();
-			     write(pipe0[1], &tmp2, 4);
-		            tmp=((VAC_Actor*) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetCurrentSector();
-			     write(pipe0[1], &tmp, 4);
-			}
-                    tmp =GameApplet->GetDefaultGameView()->lastkeycode;       
-                    write(pipe0[1], &tmp, 4);
-                    
-                }
+						tmp = ((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(c))->GetAngle();
+						write(pipe0[1], &tmp, 4);
+						tmp2 = ((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetPosition()->GetX();
+						write(pipe0[1], &tmp2, 4);
+						tmp2 = ((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetPosition()->GetY();
+						write(pipe0[1], &tmp2, 4);
+						tmp2 = ((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetPosition()->GetZ();
+						write(pipe0[1], &tmp2, 4);
+						tmp = ((VAC_Actor *) GameApplet->GetDefaultGameView()->GetActors()->GetActorPtr(
+								c))->GetCurrentSector();
+						write(pipe0[1], &tmp, 4);
+					}
+					tmp = GameApplet->GetDefaultGameView()->lastkeycode;
+					write(pipe0[1], &tmp, 4);
 
-            }
-		else std::cout << "**less than two**" << std::endl;
-        }
+				}
+
+			} else std::cout << "**less than two**" << std::endl;
+		}
 #endif
-        tickGame();
+		tickGame();
 
 		quit = GameApplet->WaitForNextCycle();
-    }
+	}
 #else
-	 emscripten_set_main_loop(tickGame, 30, 1);
+	emscripten_set_main_loop(tickGame, 30, 1);
 #endif
 
 
-    delete GameApplet;
+	delete GameApplet;
 }

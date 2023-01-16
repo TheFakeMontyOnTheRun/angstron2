@@ -1,18 +1,21 @@
 ///@brief in case the target device supports special actions. A good idea never really used.
 ///@note I suspect its better to move this to the app_arch, or maybe the toolkit...
 
-class BZK_DeviceActions
-{
- public:
+class BZK_DeviceActions {
+public:
 //----------------------------------------------------------------------------------------------
-  virtual void ActivateBacklight()=0;
+	virtual void ActivateBacklight() = 0;
+
 //----------------------------------------------------------------------------------------------
-  virtual void Vibrate()=0;
+	virtual void Vibrate() = 0;
+
 //----------------------------------------------------------------------------------------------
-  virtual void Shutdown()=0;
+	virtual void Shutdown() = 0;
+
 //----------------------------------------------------------------------------------------------
-  virtual void HaltBZK()=0;
+	virtual void HaltBZK() = 0;
+
 //----------------------------------------------------------------------------------------------
-  virtual void OnBZKResume()=0;
+	virtual void OnBZKResume() = 0;
 //----------------------------------------------------------------------------------------------
 };

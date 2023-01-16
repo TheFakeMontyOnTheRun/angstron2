@@ -13,8 +13,10 @@
 #include "BZK_SAL.h"
 
 #ifdef FPU
+
 #include "BZK_FixP_float.h"
 #include "BZK_FloatMath.h"
+
 #endif
 
 #ifdef FIXP

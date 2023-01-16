@@ -8,7 +8,9 @@ BSC - BZK system coordinates ( sectors and actors always use this )
 LHC - Left Hand Coordinates ( lookup on foley van dam for help on this )
 CAMERA - render's own internal coordenate system.Rendering purposes only.
 */
-enum {UNDEFINED,BSC,LHC,CAMERA};
+enum {
+	UNDEFINED, BSC, LHC, CAMERA
+};
 //*********error constants***************************************************
 /// deprecated - this will be reviewed soon
 ///@deprecated
@@ -63,7 +65,7 @@ enum {UNDEFINED,BSC,LHC,CAMERA};
 
 //#define NOSOUND   
 /// biggest frames per second desired
-#define BZK_DESIRED_FPS 10 
+#define BZK_DESIRED_FPS 10
 
 //********* system default resolution ********************************************************
 /// rules for plataform constants. Not that used anymore.
@@ -101,15 +103,34 @@ enum {UNDEFINED,BSC,LHC,CAMERA};
 #endif
 ////////////////
 /// alignment of a given polyface
-enum {NOPE,XY_ALLIGNED,XZ_ALLIGNED,YZ_ALLIGNED};
+enum {
+	NOPE, XY_ALLIGNED, XZ_ALLIGNED, YZ_ALLIGNED
+};
 /// directions for game units and portals
-enum {N,E,S,W,FLOOR,CEILING};
+enum {
+	N, E, S, W, FLOOR, CEILING
+};
 /// available base actions for the system
-enum {ACT_MOVE_N,ACT_MOVE_E,ACT_MOVE_S,ACT_MOVE_W,ACT_MOVE_DOWN,ACT_MOVE_UP,ACT_TURN_L,ACT_TURN_R,ACT_ACTION1,ACT_ACTION2,ACT_ACTION3,ACT_ACTION4};
+enum {
+	ACT_MOVE_N,
+	ACT_MOVE_E,
+	ACT_MOVE_S,
+	ACT_MOVE_W,
+	ACT_MOVE_DOWN,
+	ACT_MOVE_UP,
+	ACT_TURN_L,
+	ACT_TURN_R,
+	ACT_ACTION1,
+	ACT_ACTION2,
+	ACT_ACTION3,
+	ACT_ACTION4
+};
 //     0          1          2           3         4             5            6          7           8          9
 
 
-enum {PLAYER_SOUND,PEER_SOUND,FAR_SOUND,EFFECTS_SOUND};
+enum {
+	PLAYER_SOUND, PEER_SOUND, FAR_SOUND, EFFECTS_SOUND
+};
 
 ///hints for implementers
 //base trigger for move actions
@@ -142,33 +163,33 @@ enum {PLAYER_SOUND,PEER_SOUND,FAR_SOUND,EFFECTS_SOUND};
 
 ///widescreen VGA
 #ifdef WGA
-	#define XRES 800
-	#define YRES 480
+#define XRES 800
+#define YRES 480
 #endif
 
 #ifdef DBL_WGA
-	#define XRES 400
-	#define YRES 240
+#define XRES 400
+#define YRES 240
 #endif
 
 
 ///quarter VGA
 #ifdef QVGA
-	#define XRES 240
-	#define YRES 320
+#define XRES 240
+#define YRES 320
 #endif
 /// VGA (planning to use Mer on my dell axim x50v)
 #ifdef VGA
-	#define XRES 480
-	#define YRES 640
+#define XRES 480
+#define YRES 640
 #endif
 
 
 ///never used actually
 #ifdef S60ED1
-	#define XRES 176
-	#define YRES 208
+#define XRES 176
+#define YRES 208
 #endif
 
-	#define MXRES BZK_FastMath::Int32toFix32(XRES)
-	#define MYRES BZK_FastMath::Int32toFix32(YRES)
+#define MXRES BZK_FastMath::Int32toFix32(XRES)
+#define MYRES BZK_FastMath::Int32toFix32(YRES)

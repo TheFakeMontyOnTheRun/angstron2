@@ -1,8 +1,9 @@
-//ja que todos os arquivos includem as mesmas coisas, pq não agrupar?
+//ja que todos os arquivos includem as mesmas coisas, pq nï¿½o agrupar?
 using namespace std;
 
 #ifndef VAC_BASEINCLUDES_H
 #define VAC_BASEINCLUDES_H
+
 #include "VAC_ColorRGBA.h"
 #include "VAC_Vec3f.h"
 #include "VAC_Vec2f.h"
@@ -20,9 +21,11 @@ using namespace std;
 //#include "VAC_WorldFactory.h"
 
 #ifdef BZK_USE_OPENGL
-	#include "VAC_RastererGL.h"
+#include "VAC_RastererGL.h"
 #else
-	#include "VAC_Rasterer.h"
+
+#include "VAC_Rasterer.h"
+
 #endif
 
 #include "VAC_DeviceIO.h"
@@ -31,4 +34,5 @@ using namespace std;
 #include "VAC_WMLView.h"
 #include "VAC_Engine.h"
 #include "VAC_Applet.h"
+
 #endif

@@ -1,10 +1,9 @@
-class VAC_PolyBuffer:public BZK_Vector<VAC_Face*>
-{
- public:
-  string iResourceName;
- // BZK_FixP iHead;
- // BZK_FixP iTail;
-  
+class VAC_PolyBuffer : public BZK_Vector<VAC_Face *> {
+public:
+	string iResourceName;
+	// BZK_FixP iHead;
+	// BZK_FixP iTail;
+
 /*
   BZK_Queue<VAC_Face*> iFaces;
  public:
@@ -24,168 +23,157 @@ class VAC_PolyBuffer:public BZK_Vector<VAC_Face*>
       while (!aAnother.Empty())	
 	  Push(aAnother.Pop());	
     }*/
-  
+
 //TODO: make it actually order this mess
-  void Order()
-    {
-      BZK_Stack<VAC_Face*> temp;
-      BZK_Queue<VAC_Face*> final; //mais seguro assim...      
-    }
+	void Order() {
+		BZK_Stack<VAC_Face *> temp;
+		BZK_Queue<VAC_Face *> final; //mais seguro assim...
+	}
 
-  ~VAC_PolyBuffer()
-    {      
-      EraseAll();
-    }
+	~VAC_PolyBuffer() {
+		EraseAll();
+	}
 
-  static
- VAC_PolyBuffer *InternalizeFromScratch(ifstream &aObj)
- {  
-   VAC_PolyBuffer *tmp=new VAC_PolyBuffer();
-   tmp->Internalize(aObj);   
-   return tmp;
- }
+	static
+	VAC_PolyBuffer *InternalizeFromScratch(ifstream &aObj) {
+		VAC_PolyBuffer *tmp = new VAC_PolyBuffer();
+		tmp->Internalize(aObj);
+		return tmp;
+	}
 
-void Push(VAC_PolyBuffer &aAnother)
-{
-int qtd=aAnother.TotalItems();
-for (int c=0;c<qtd;c++)
-	Add(aAnother[c]);
-aAnother.ReleaseAll();
-}
+	void Push(VAC_PolyBuffer &aAnother) {
+		int qtd = aAnother.TotalItems();
+		for (int c = 0; c < qtd; c++)
+			Add(aAnother[c]);
+		aAnother.ReleaseAll();
+	}
 
-void Flip()
-{
-BZK_Queue<VAC_Face*> tmp;
-VAC_Face *tmp2;
-BZK_FixP tmp3;
-for (int d=0;d<TotalItems();d++)
-	{
-	tmp2=(*this)[d];
-	for (int c=0;c<tmp2->GetTotalPoints();c++)
-		{	
-			tmp3=tmp2->GetPoint(c)->GetY();
-			tmp2->GetPoint(c)->SetY(tmp2->GetPoint(c)->GetX());
-			tmp2->GetPoint(c)->SetX(tmp3);
+	void Flip() {
+		BZK_Queue<VAC_Face *> tmp;
+		VAC_Face *tmp2;
+		BZK_FixP tmp3;
+		for (int d = 0; d < TotalItems(); d++) {
+			tmp2 = (*this)[d];
+			for (int c = 0; c < tmp2->GetTotalPoints(); c++) {
+				tmp3 = tmp2->GetPoint(c)->GetY();
+				tmp2->GetPoint(c)->SetY(tmp2->GetPoint(c)->GetX());
+				tmp2->GetPoint(c)->SetX(tmp3);
+			}
 		}
 	}
-}
 
 
-  void Internalize(ifstream &aObj)
-  {
-      if (!aObj.good())
-	{
-	  cout << "ERROR:resource not found!"<<endl;
-	  exit(0);
-	}
-      //carrega um arquivo no formato Alias's Wavefront OBJ
-      //cout << "iniciando leitura" <<endl;
-      BZK_Vector<BZK_Vec3f*> Vertices;
-      string token;
-      int vert[255];
-      float level;
-      int count;
-      float r,g,b,a;
-      memset(vert,0,sizeof(int)*4);
-	a=255.0;
-      /*
-      r=0.0;
-      g=1.0;
-      b=0.0;
-      a=0.25;
-      */
-      while (!aObj.eof())
-	{
-	  getline(aObj,token);
-	  if (token[0]=='f')
-	    {
-	      VAC_Face *handler=NULL;
-	      //    //cout << "entrei" <<endl;
-	      count=0;
-	      while (BZK_ParsingTools::GetSubToken(token,count)!="")
-		{
-		vert[count]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,count+1)));
-		count++;
+	void Internalize(ifstream &aObj) {
+		if (!aObj.good()) {
+			cout << "ERROR:resource not found!" << endl;
+			exit(0);
 		}
-	      count--;
+		//carrega um arquivo no formato Alias's Wavefront OBJ
+		//cout << "iniciando leitura" <<endl;
+		BZK_Vector<BZK_Vec3f *> Vertices;
+		string token;
+		int vert[255];
+		float level;
+		int count;
+		float r, g, b, a;
+		memset(vert, 0, sizeof(int) * 4);
+		a = 255.0;
+		/*
+		r=0.0;
+		g=1.0;
+		b=0.0;
+		a=0.25;
+		*/
+		while (!aObj.eof()) {
+			getline(aObj, token);
+			if (token[0] == 'f') {
+				VAC_Face *handler = NULL;
+				//    //cout << "entrei" <<endl;
+				count = 0;
+				while (BZK_ParsingTools::GetSubToken(token, count) != "") {
+					vert[count] = BZK_FastMath::Fix32toInt32(
+							BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token, count + 1)));
+					count++;
+				}
+				count--;
 
-	      /*
-	      vert[0]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,1)));   
-	      vert[1]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,2)));
-	      vert[2]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,3)));
-	      vert[3]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,4)));
-	      */
-	      
-	      for (int c=0;c<count;c++)		 if (vert[c]<=0) vert[c]=1;
+				/*
+				vert[0]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,1)));
+				vert[1]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,2)));
+				vert[2]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,3)));
+				vert[3]=BZK_FastMath::Fix32toInt32(BZK_ParsingTools::GetNumber(BZK_ParsingTools::GetSubToken(token,4)));
+				*/
 
-	      /*
-	      if (vert[0]<=0) vert[0]=1;
-	      if (vert[1]<=0) vert[1]=1;
-	      if (vert[2]<=0) vert[2]=1;
-	      if (vert[3]<=0) vert[3]=1;
-	      */
-	      /*
-	      for (int c=0;c<count;c++) 
-		if (vert[c]-1>=Vertices.TotalItems())
-		  {
-		    //cout <<"** vertice fora de faixa **"<<endl;
-		    exit(0);
-		  }
-	      */
-		  //vert[c]=Vertices.TotalItems();
-	      
-	      /*
-	      if (vert[0]>=Vertices.TotalItems()) vert[0]=Vertices.TotalItems();
-	      if (vert[1]>=Vertices.TotalItems()) vert[1]=Vertices.TotalItems();
-	      if (vert[2]>=Vertices.TotalItems()) vert[2]=Vertices.TotalItems();
-	      if (vert[3]>=Vertices.TotalItems()) vert[3]=Vertices.TotalItems();
-	      */
-	     
-	      handler=new VAC_Face();
-	      // //cout << "count:" <<count<<endl;
-	      for (int c=0;c<count;c++)
-		handler->AddPoint(Vertices[vert[c]-1]);
+				for (int c = 0; c < count; c++) if (vert[c] <= 0) vert[c] = 1;
 
-	      //	      handler=new VAC_Face(Vertices[vert[0]-1],Vertices[vert[1]-1],Vertices[vert[2]-1],Vertices[vert[3]-1],0);
+				/*
+				if (vert[0]<=0) vert[0]=1;
+				if (vert[1]<=0) vert[1]=1;
+				if (vert[2]<=0) vert[2]=1;
+				if (vert[3]<=0) vert[3]=1;
+				*/
+				/*
+				for (int c=0;c<count;c++)
+			  if (vert[c]-1>=Vertices.TotalItems())
+				{
+				  //cout <<"** vertice fora de faixa **"<<endl;
+				  exit(0);
+				}
+				*/
+				//vert[c]=Vertices.TotalItems();
+
+				/*
+				if (vert[0]>=Vertices.TotalItems()) vert[0]=Vertices.TotalItems();
+				if (vert[1]>=Vertices.TotalItems()) vert[1]=Vertices.TotalItems();
+				if (vert[2]>=Vertices.TotalItems()) vert[2]=Vertices.TotalItems();
+				if (vert[3]>=Vertices.TotalItems()) vert[3]=Vertices.TotalItems();
+				*/
+
+				handler = new VAC_Face();
+				// //cout << "count:" <<count<<endl;
+				for (int c = 0; c < count; c++)
+					handler->AddPoint(Vertices[vert[c] - 1]);
+
+				//	      handler=new VAC_Face(Vertices[vert[0]-1],Vertices[vert[1]-1],Vertices[vert[2]-1],Vertices[vert[3]-1],0);
 
 
-	      assert(handler!=NULL);
-	      
-	      handler->iFill.SetColor(BZK_FastMath::Real32toFix32(r*255),
-				      BZK_FastMath::Real32toFix32(g*255),
-				      BZK_FastMath::Real32toFix32(b*255),
-				      BZK_FastMath::Real32toFix32(a*255));
-	      handler->iOutLine.SetColor(0,
-				      0,
-				      0,
-				      BZK_FastMath::Real32toFix32(a*255));
-	     // handler->iFill.AddNoise();
-	      
-	      handler->DoNormal();
-	      level=BZK_FastMath::Fix32toReal32(BZK_VecOps::DotProductFix(*handler->GetNormal(),BZK_Vec3f(1,1,1)))*255;
-	      if (level <0)// 
-		  level=-level;
+				assert(handler != NULL);
 
-		if (level > 128 && level <255)
-		  handler->iFill.Darken(level);
+				handler->iFill.SetColor(BZK_FastMath::Real32toFix32(r * 255),
+										BZK_FastMath::Real32toFix32(g * 255),
+										BZK_FastMath::Real32toFix32(b * 255),
+										BZK_FastMath::Real32toFix32(a * 255));
+				handler->iOutLine.SetColor(0,
+										   0,
+										   0,
+										   BZK_FastMath::Real32toFix32(a * 255));
+				// handler->iFill.AddNoise();
 
-	      Add (handler);
-	      
-	    }
-	  
-	  if(token[0]=='v') 
-	    {
-	      //    //cout << token << endl;
-	      BZK_Vec3f *handler=new BZK_Vec3f();
-	      handler->Internalize(token);
-	      ////cout << BZK_VecOps::Print(*handler) <<endl;
-	      Vertices.Add(handler);
-	      
-	    }  
+				handler->DoNormal();
+				level = BZK_FastMath::Fix32toReal32(
+						BZK_VecOps::DotProductFix(*handler->GetNormal(), BZK_Vec3f(1, 1, 1))) * 255;
+				if (level < 0)//
+					level = -level;
 
-	  if(token[0]=='u') //usemtl 
-	    {	
-	      string nomemtl=BZK_ParsingTools::GetSubToken(string(token),1);
+				if (level > 128 && level < 255)
+					handler->iFill.Darken(level);
+
+				Add(handler);
+
+			}
+
+			if (token[0] == 'v') {
+				//    //cout << token << endl;
+				BZK_Vec3f *handler = new BZK_Vec3f();
+				handler->Internalize(token);
+				////cout << BZK_VecOps::Print(*handler) <<endl;
+				Vertices.Add(handler);
+
+			}
+
+			if (token[0] == 'u') //usemtl
+			{
+				string nomemtl = BZK_ParsingTools::GetSubToken(string(token), 1);
 /*
 	      if (nomemtl=="Rock")
 		{
@@ -280,28 +268,28 @@ for (int d=0;d<TotalItems();d++)
 //	      if (nomemtl[0]=='#')
 		else
 */
-		{
-		  a=1.0;
-		  VAC_ColorRGBA tmp;
-		  tmp.DecodeXMLColor(nomemtl);
-		 // a=tmp.a();
-		  b=tmp.b()/255.0;
-		  g=tmp.g()/255.0;
-		  r=tmp.r()/255.0;
+				{
+					a = 1.0;
+					VAC_ColorRGBA tmp;
+					tmp.DecodeXMLColor(nomemtl);
+					// a=tmp.a();
+					b = tmp.b() / 255.0;
+					g = tmp.g() / 255.0;
+					r = tmp.r() / 255.0;
 //		  cout << "cor:"<<nomemtl<<"="<<r<<","<<g<<","<<b<<","<<a<<endl;
-		  //cout << "cor HTML ou SVG"<<endl;
-		}
-	    }  
+					//cout << "cor HTML ou SVG"<<endl;
+				}
+			}
 
+		}
+
+		{//cleanup
+
+			for (int c = 0; c < Vertices.TotalItems(); c++) delete Vertices[c];
+		}
+		//cout << "** "<<TotalItems()<<" poligono(s) importados" <<endl;
 	}
-      
-      {//cleanup
-	
-	for (int c=0;c<Vertices.TotalItems();c++)	  delete Vertices[c];	  
-      }
-      //cout << "** "<<TotalItems()<<" poligono(s) importados" <<endl;
-    }
- //---------------------------------------------------------------------------------------
+	//---------------------------------------------------------------------------------------
 /*
 void  Externalize (string aFilename)
    {
@@ -344,17 +332,15 @@ void  Externalize (string aFilename)
     }
 */
 
-  long iDistance;
-  
-  VAC_PolyBuffer()
-    {
-    //  iHead=0;
-      //iTail=0;
-     
-    }
+	long iDistance;
 
-  void Push(VAC_Face *aPtr)
-	{
+	VAC_PolyBuffer() {
+		//  iHead=0;
+		//iTail=0;
+
+	}
+
+	void Push(VAC_Face *aPtr) {
 		Add(aPtr);
 	}
 /*
@@ -410,5 +396,5 @@ void  Externalize (string aFilename)
 
     }
   */
-  
+
 };
