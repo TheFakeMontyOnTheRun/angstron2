@@ -7,7 +7,7 @@
 
 #ifndef POCKETPC
 #include <SDL.h>
-#include <SDL/SDL_mixer.h>
+#include <SDL_mixer.h>
 #include "SDL_gfx/SDL_gfxPrimitives.h"
 #endif
 

@@ -10,7 +10,7 @@
 #endif
 //comment this to build for Windows CE
 #ifndef POCKETPC
-#include <SDL/SDL.h>
+#include <SDL.h>
 #endif
 int main(int argc, char *argv[])
 {
