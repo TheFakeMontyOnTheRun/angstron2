@@ -2312,7 +2312,7 @@ hunter/floor2.bzk2
 </Sector>
 <!-- sector 47 -->
 <Sector>
-<!--Door face = 3' timeout = '150 opener = 36 opensound = "hunter/dooropen.wav" closesound = "hunter/doorclose.wav"  openonpresence = true /-->
+<!--Door face = 3 timeout = 150 opener = 36 opensound = "hunter/dooropen.wav" closesound = "hunter/doorclose.wav"  openonpresence = true /-->
 <!--texture>
 3 hunter/door.svg
 </texture-->
@@ -18304,7 +18304,7 @@ hunter/floor2.bzk2
 </Sector>
 <!-- sector 423 -->
 <Sector>
-<Door face = '0' timeout = '150' opener = '36' opensound = "hunter/dooropen.wav" closesound = "hunter/doorclose.wav"  openonpresence = 'true' />
+<Door face = 0 timeout = 150 opener = 36 opensound = "hunter/dooropen.wav" closesound = "hunter/doorclose.wav"  openonpresence = true />
 <texture>
 0 hunter/big_door.svg
 </texture>
@@ -21864,7 +21864,7 @@ hunter/floor2.bzk2
 <parent>
 987
 </parent>
-<Door face = '0' timeout = '150' opener = '36' opensound = "hunter/dooropen.wav" closesound = "hunter/doorclose.wav"  openonpresence = 'true' />
+<Door face = 0 timeout = 150 opener = 36 opensound = "hunter/dooropen.wav" closesound = "hunter/doorclose.wav"  openonpresence = true />
 <texture>
 0 hunter/door0.svg
 </texture>
@@ -50610,7 +50610,7 @@ hunter/floor2.bzk2
 </Location>
 <light>
 128
-</light>
+<light>
 </Actor>
 
 
@@ -50678,6 +50678,7 @@ hunter/floor2.bzk2
 </Kind>
 </Actor>
 
+</Actor>
 <Actor>
 <Location>
 25
